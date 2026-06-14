@@ -25,39 +25,19 @@
     line-height: 1.5;
   }
   .hero {
-    position: relative;
-    height: 42vh;
-    min-height: 280px;
-    background: #87b6d4 url('images/hero.jpg') center 30% / cover no-repeat;
+    background: var(--cream);
+    padding: 32px 20px 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--rust);
   }
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(43,40,38,0.05) 0%, rgba(43,40,38,0.35) 100%);
-  }
-  .hero-content {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    z-index: 2;
-  }
-  .logo-badge-wrap {
-    width: 26vw;
-    max-width: 130px;
-    min-width: 90px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: var(--charcoal);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6%;
-  }
-  .logo-badge {
-    width: 100%;
+  .hero img {
+    max-width: 280px;
+    width: 70%;
     height: auto;
+  }
+  .build-photo {
+    width: 100%;
+    display: block;
   }
   main {
     max-width: 680px;
@@ -176,12 +156,11 @@
 <body>
 
 <div class="hero">
-  <div class="hero-content">
-    <div class="logo-badge-wrap">
-      <img class="logo-badge" src="images/logo.png" alt="Nog 'n Bietjie Plaas Steel Work - Ladismith, Klein Karoo">
-    </div>
-  </div>
+  <img src="images/logo.png" alt="Nog 'n Bietjie Plaas Steel Work - Ladismith, Klein Karoo">
 </div>
+
+<img class="build-photo" src="images/hero.jpg" alt="Steel structure being erected on the farm">
+
 
 <main>
   <section class="services">
