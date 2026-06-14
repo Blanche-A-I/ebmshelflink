@@ -34,7 +34,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(43,40,38,0.15) 0%, rgba(43,40,38,0.75) 100%);
+    background: linear-gradient(to bottom, rgba(43,40,38,0.05) 0%, rgba(43,40,38,0.35) 100%);
   }
   .hero-content {
     position: absolute;
@@ -42,30 +42,15 @@
     left: 0;
     right: 0;
     padding: 24px 20px 28px;
-    color: #fff;
     z-index: 2;
+    display: flex;
+    align-items: flex-end;
   }
-  .tagline {
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--rust);
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .hero h1 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 900;
-    font-size: 2.6rem;
-    line-height: 1.05;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-  }
-  .hero p.sub {
-    margin-top: 8px;
-    font-size: 0.95rem;
-    color: var(--rust);
-    font-weight: 700;
+  .logo-badge {
+    width: 38vw;
+    max-width: 200px;
+    min-width: 120px;
+    filter: drop-shadow(0 4px 14px rgba(0,0,0,0.45));
   }
   main {
     max-width: 680px;
@@ -185,9 +170,7 @@
 
 <div class="hero">
   <div class="hero-content">
-    <div class="tagline">Ladismith &middot; Klein Karoo</div>
-    <h1>Sterk Staalwerk</h1>
-    <p class="sub">Built to last. / Gebou om te hou.</p>
+    <img class="logo-badge" src="images/logo.png" alt="Nog 'n Bietjie Plaas Steel Work - Ladismith, Klein Karoo">
   </div>
 </div>
 
