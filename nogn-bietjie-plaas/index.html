@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nog 'n Bietjie Plaas Steel Work | Sterk Staalwerk - Ladismith, Klein Karoo</title>
 <meta property="og:title" content="Nog 'n Bietjie Plaas Steel Work | Sterk Staalwerk">
-<meta property="og:description" content="Plaasstrukture, Staalrame, Skure, Installasie & Plaasheinings - Ladismith, Klein Karoo. Built to last / Gebou om te hou. Kontak ons vir 'n kwotasie.">
+<meta property="og:description" content="Van die Klein Karoo tot Nasionaal. Sterk strukture. Gebou om te bly. Kontak ons vir 'n kwotasie.">
 <meta property="og:image" content="https://ebmshelflink.co.za/nogn-bietjie-plaas/images/hero.jpg">
 <meta property="og:url" content="https://ebmshelflink.co.za/nogn-bietjie-plaas/">
 <meta property="og:type" content="website">
@@ -24,21 +24,89 @@
     color: var(--charcoal);
     line-height: 1.5;
   }
+
+  /* ── HERO ── */
   .hero {
-    background: var(--cream);
-    padding: 32px 20px 20px;
-    text-align: center;
-    border-bottom: 3px solid var(--rust);
-  }
-  .hero img {
-    max-width: 280px;
-    width: 70%;
-    height: auto;
-  }
-  .build-photo {
+    position: relative;
     width: 100%;
-    display: block;
+    min-height: 72vw;
+    max-height: 520px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.55) saturate(1.15);
+  }
+  /* warm gradient overlay — top stays lighter, bottom goes dark */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(30, 15, 5, 0.15) 0%,
+      rgba(161, 61, 32, 0.18) 40%,
+      rgba(20, 10, 4, 0.72) 100%
+    );
+  }
+  .hero-logo {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 72px;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 1px 6px rgba(0,0,0,0.55));
+  }
+  .hero-text {
+    position: relative;
+    z-index: 2;
+    padding: 0 22px 32px;
+  }
+  .hero-text h1 {
+    font-size: clamp(1.75rem, 7vw, 2.8rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+  }
+  .hero-text h1 em {
+    font-style: normal;
+    color: #f0b07a;
+  }
+  .hero-sub {
+    font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+    color: rgba(255,255,255,0.88);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+    margin-bottom: 18px;
+  }
+  .hero-cta-pill {
+    display: inline-block;
+    background: var(--rust);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 10px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  }
+
+  /* ── MAIN CONTENT ── */
   main {
     max-width: 680px;
     margin: 0 auto;
@@ -48,11 +116,12 @@
     margin-bottom: 28px;
   }
   .services h2 {
-    font-size: 1rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--rust-dark);
     margin-bottom: 14px;
+    font-weight: 800;
   }
   .service-grid {
     display: grid;
@@ -107,6 +176,8 @@
     display: block;
     margin-top: 2px;
   }
+
+  /* ── CTA ── */
   .cta-wrap {
     text-align: center;
     margin-top: 32px;
@@ -135,6 +206,8 @@
     font-size: 0.85rem;
     color: #6b6258;
   }
+
+  /* ── FOOTER ── */
   footer {
     text-align: center;
     padding: 24px 20px 36px;
@@ -155,15 +228,20 @@
 </head>
 <body>
 
+<!-- ── HERO ── -->
 <div class="hero">
-  <img src="images/logo.png" alt="Nog 'n Bietjie Plaas Steel Work - Ladismith, Klein Karoo">
+  <img class="hero-bg" src="images/hero.jpg" alt="Steel structure being erected on the farm">
+  <img class="hero-logo" src="images/logo.png" alt="Nog 'n Bietjie Plaas Steel Work">
+  <div class="hero-text">
+    <h1>Van die <em>Klein Karoo</em><br>tot Nasionaal</h1>
+    <p class="hero-sub">Sterk strukture. Gebou om te bly.</p>
+    <a class="hero-cta-pill" href="#dienste">Ons Dienste</a>
+  </div>
 </div>
 
-<img class="build-photo" src="images/hero.jpg" alt="Steel structure being erected on the farm">
-
-
+<!-- ── SERVICES ── -->
 <main>
-  <section class="services">
+  <section class="services" id="dienste">
     <h2>Ons Dienste / Our Services</h2>
     <div class="service-grid">
       <div class="service-item" data-key="plaasstrukture" onclick="toggleService(this)">
@@ -198,7 +276,7 @@
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.56 3.78 1.55 5.34L2 22l4.9-1.62a9.86 9.86 0 0 0 5.14 1.42h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.18 0 4.23.85 5.77 2.39a8.13 8.13 0 0 1 2.4 5.78c0 4.51-3.67 8.18-8.18 8.18a8.18 8.18 0 0 1-4.16-1.14l-.3-.17-3.07 1.01 1.03-2.99-.19-.31a8.1 8.1 0 0 1-1.27-4.4c0-4.51 3.67-8.35 8.07-8.35zm-2.46 4.46c-.16 0-.42.06-.6.27-.2.23-.78.76-.78 1.85 0 1.09.79 2.14.9 2.29.11.15 1.5 2.39 3.73 3.27 1.85.73 2.23.59 2.63.55.4-.04 1.3-.53 1.48-1.05.18-.51.18-.95.13-1.04-.06-.1-.21-.15-.45-.27-.23-.12-1.3-.64-1.5-.71-.2-.07-.35-.11-.5.11-.15.22-.57.71-.7.86-.13.15-.26.16-.48.06-.23-.11-.96-.36-1.83-1.14-.68-.6-1.13-1.34-1.27-1.57-.13-.22-.01-.35.11-.47.11-.11.26-.29.39-.43.13-.15.17-.25.26-.42.09-.18.04-.33-.03-.45-.07-.12-.6-1.47-.83-2.01-.18-.43-.36-.45-.55-.46h-.21z"/></svg>
       <span>Vra 'n Kwotasie / Get a Quote via WhatsApp</span>
     </a>
-    <p class="cta-sub">Tik op die dienste hierbo wat jy nodig het, dan stuur via WhatsApp / Tap the services above you need, then send via WhatsApp</p>
+    <p class="cta-sub">Tik op die dienste hierbo wat jy nodig het, dan stuur via WhatsApp<br>Tap the services above you need, then send via WhatsApp</p>
   </div>
 
   <footer>
@@ -210,7 +288,6 @@
 
 <script>
   var phone = "27663527476";
-
   var serviceLabels = {
     plaasstrukture: "Plaasstrukture / Farm structures",
     staalrame: "Staalrame / Steel frames",
@@ -228,27 +305,19 @@
   function updateLink() {
     var items = document.querySelectorAll(".service-item.active");
     var lines = [];
-    items.forEach(function (el) {
-      var key = el.getAttribute("data-key");
-      lines.push("\u2705 " + serviceLabels[key]);
+    items.forEach(function(el) {
+      lines.push("\u2705 " + serviceLabels[el.getAttribute("data-key")]);
     });
-
     var message = "Goeie dag / Good day, ek stel belang in:\n";
-    if (lines.length > 0) {
-      message += lines.join("\n") + "\n\n";
-    } else {
-      message += "(kies asseblief 'n diens / please select a service)\n\n";
-    }
-    message += "Naam / Name:\n"
-      + "Ligging / Location:\n"
-      + "Besonderhede / Details:";
-
+    message += lines.length > 0
+      ? lines.join("\n") + "\n\n"
+      : "(kies asseblief 'n diens / please select a service)\n\n";
+    message += "Naam / Name:\nLigging / Location:\nBesonderhede / Details:";
     document.getElementById("waBtn").href =
       "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
   }
 
   updateLink();
 </script>
-
 </body>
 </html>
