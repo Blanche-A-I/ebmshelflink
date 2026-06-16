@@ -16,10 +16,15 @@
     --charcoal: #2B2B2B;
     --rust: #C1502E;
     --rust-dark: #A13D20;
-    --rust-light: #D4673E;
     --text-muted: #6B6258;
+    --wa-green: #25D366;
+    --wa-green-dark: #1da851;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
   body {
     font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
     background: var(--beige);
@@ -32,9 +37,9 @@
   .hero {
     position: relative;
     width: 100%;
-    height: 100svh;
-    max-height: 680px;
-    min-height: 420px;
+    height: 48vh;
+    min-height: 340px;
+    max-height: 480px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -46,66 +51,63 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 25%;
+    object-position: center 30%;
   }
   .hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      170deg,
-      rgba(20, 10, 5, 0.22) 0%,
-      rgba(30, 14, 6, 0.38) 35%,
-      rgba(15, 8, 3, 0.72) 100%
+      160deg,
+      rgba(10, 5, 2, 0.28) 0%,
+      rgba(20, 10, 4, 0.42) 40%,
+      rgba(10, 5, 2, 0.74) 100%
     );
   }
 
-  /* Logo — signature badge top-left */
+  /* Logo badge */
   .hero-logo-wrap {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 16px;
+    left: 16px;
     z-index: 3;
   }
   .hero-logo-wrap img {
-    width: 96px;
+    width: 110px;
     height: auto;
     display: block;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,0.7)) drop-shadow(0 0 3px rgba(0,0,0,0.5));
   }
 
   /* Hero text */
   .hero-content {
     position: relative;
     z-index: 2;
-    padding: 0 24px 36px;
+    padding: 0 20px 28px;
+    width: 100%;
   }
   .hero-eyebrow {
-    display: inline-block;
-    font-size: 0.72rem;
+    display: block;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--rust-light);
-    margin-bottom: 10px;
+    letter-spacing: 0.16em;
+    color: #F0A96A;
+    margin-bottom: 8px;
   }
   .hero-content h1 {
-    font-size: clamp(1.9rem, 8vw, 3rem);
+    font-size: clamp(1.7rem, 7.5vw, 2.6rem);
     font-weight: 900;
     color: #fff;
     line-height: 1.08;
     letter-spacing: -0.02em;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.45);
-    margin-bottom: 12px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
   }
-  .hero-content h1 span {
-    color: #F0A96A;
-  }
+  .hero-content h1 span { color: #F0A96A; }
   .hero-sub {
-    font-size: 1rem;
+    font-size: 0.92rem;
     color: rgba(255,255,255,0.82);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    margin-bottom: 28px;
+    margin-bottom: 22px;
     text-shadow: 0 1px 6px rgba(0,0,0,0.4);
   }
   .hero-btn {
@@ -115,83 +117,76 @@
     background: var(--rust);
     color: #fff;
     font-weight: 800;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 13px 26px;
+    padding: 12px 22px;
     border-radius: 4px;
     text-decoration: none;
-    box-shadow: 0 4px 18px rgba(193,80,46,0.45);
-    transition: background 0.18s;
+    box-shadow: 0 4px 16px rgba(193,80,46,0.4);
   }
-  .hero-btn:active { background: var(--rust-dark); }
 
-  /* ── DIVIDER ── */
-  .section-divider {
-    width: 40px;
-    height: 3px;
-    background: var(--rust);
-    margin: 0 auto 20px;
-    border-radius: 2px;
+  /* ── MAIN WRAPPER — centred, no overflow ── */
+  .page-wrap {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
   /* ── SERVICES ── */
   .services-section {
-    padding: 44px 24px 40px;
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 36px 0 32px;
   }
   .section-label {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     color: var(--rust);
     text-align: center;
     margin-bottom: 6px;
   }
   .section-heading {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
     font-weight: 900;
     color: var(--charcoal);
     text-align: center;
     letter-spacing: -0.01em;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
+    line-height: 1.2;
   }
   .service-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
   .service-card {
     background: #fff;
     border-radius: 10px;
-    border: 1.5px solid #E8E2D8;
-    padding: 18px 16px 16px 48px;
+    border: 1.5px solid #E4DECE;
+    padding: 16px 12px 16px 44px;
     position: relative;
     cursor: pointer;
     user-select: none;
+    box-shadow: 0 1px 4px rgba(43,43,43,0.06), 0 2px 8px rgba(43,43,43,0.04);
     transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
-    box-shadow: 0 1px 4px rgba(43,43,43,0.06);
-  }
-  .service-card:active {
-    box-shadow: 0 1px 2px rgba(43,43,43,0.04);
+    -webkit-tap-highlight-color: transparent;
   }
   .service-card.active {
     background: #FEF4EF;
     border-color: var(--rust);
-    box-shadow: 0 2px 10px rgba(193,80,46,0.14);
+    box-shadow: 0 2px 12px rgba(193,80,46,0.16);
   }
-  /* Checkbox */
   .service-card::before {
     content: "";
     position: absolute;
-    left: 14px;
+    left: 13px;
     top: 50%;
     transform: translateY(-50%);
-    width: 22px;
-    height: 22px;
-    border: 2px solid #D4C9BB;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #CEC4B6;
     border-radius: 5px;
     background: #fff;
     transition: border-color 0.15s, background 0.15s;
@@ -203,117 +198,117 @@
   .service-card.active::after {
     content: "";
     position: absolute;
-    left: 20px;
+    left: 18px;
     top: 50%;
-    transform: translateY(-57%) rotate(45deg);
-    width: 6px;
-    height: 11px;
+    transform: translateY(-60%) rotate(45deg);
+    width: 5px;
+    height: 10px;
     border-right: 2.5px solid #fff;
     border-bottom: 2.5px solid #fff;
   }
   .service-card .af {
     font-weight: 800;
-    font-size: 0.98rem;
+    font-size: 0.92rem;
     display: block;
     color: var(--charcoal);
     line-height: 1.2;
   }
   .service-card .en {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     display: block;
-    margin-top: 3px;
+    margin-top: 2px;
   }
   .service-card.active .af { color: var(--rust-dark); }
 
   /* ── HERITAGE STRIP ── */
   .heritage-strip {
     background: var(--charcoal);
-    padding: 26px 24px;
+    padding: 22px 20px;
     text-align: center;
+    margin: 8px 0;
   }
   .heritage-strip p {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.55);
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     font-weight: 600;
     margin-bottom: 4px;
   }
   .heritage-strip strong {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: #fff;
     font-weight: 900;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
   }
 
   /* ── WHATSAPP CTA ── */
   .cta-section {
-    padding: 40px 24px 36px;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
+    padding: 36px 0 32px;
   }
   .cta-heading {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 900;
     color: var(--charcoal);
+    text-align: center;
     margin-bottom: 6px;
   }
   .cta-sub {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
-    margin-bottom: 24px;
+    text-align: center;
+    margin-bottom: 22px;
     line-height: 1.5;
   }
   .wa-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    background: var(--rust);
+    gap: 10px;
+    background: var(--wa-green);
     color: #fff;
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     text-decoration: none;
-    padding: 18px 24px;
-    border-radius: 6px;
-    box-shadow: 0 4px 20px rgba(193,80,46,0.35);
+    padding: 17px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 18px rgba(37,211,102,0.38);
     width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-    transition: background 0.18s;
+    transition: background 0.15s;
+    -webkit-tap-highlight-color: transparent;
   }
-  .wa-btn:active { background: var(--rust-dark); }
-  .wa-btn svg { flex-shrink: 0; width: 24px; height: 24px; }
+  .wa-btn:active { background: var(--wa-green-dark); }
+  .wa-btn svg { flex-shrink: 0; width: 22px; height: 22px; }
   .wa-note {
-    margin-top: 14px;
-    font-size: 0.8rem;
+    margin-top: 12px;
+    font-size: 0.76rem;
     color: var(--text-muted);
+    text-align: center;
+    line-height: 1.5;
   }
 
   /* ── FOOTER ── */
   footer {
     border-top: 1px solid #DDD6CA;
-    padding: 28px 24px 44px;
+    padding: 24px 20px 44px;
     text-align: center;
   }
   .footer-name {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
     font-weight: 900;
     color: var(--charcoal);
-    letter-spacing: 0.02em;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   .footer-location {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: var(--text-muted);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .footer-cell {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--rust-dark);
     letter-spacing: 0.04em;
@@ -326,53 +321,53 @@
 <div class="hero">
   <img class="hero-bg" src="images/hero.jpg" alt="Nog 'n Bietjie Plaas Steel Work — staalstruktuur in aanbou">
   <div class="hero-overlay"></div>
-
   <div class="hero-logo-wrap">
-    <img src="images/logo.png" alt="Nog 'n Bietjie Plaas Steel Work — Ladismith, Klein Karoo">
+    <img src="images/logo.png" alt="Nog 'n Bietjie Plaas Steel Work">
   </div>
-
   <div class="hero-content">
     <span class="hero-eyebrow">Ladismith · Klein Karoo</span>
     <h1>Van die <span>Klein Karoo</span><br>tot Nasionaal</h1>
     <p class="hero-sub">Sterk strukture. Gebou om te bly.</p>
     <a class="hero-btn" href="#dienste">
       Ons Dienste
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
     </a>
   </div>
 </div>
 
 <!-- ── SERVICES ── -->
-<section class="services-section" id="dienste">
-  <p class="section-label">Ons Dienste</p>
-  <h2 class="section-heading">Wat kan ons vir jou bou?</h2>
-  <div class="service-grid">
-    <div class="service-card" data-key="plaasstrukture" onclick="toggleService(this)">
-      <span class="af">Plaasstrukture</span>
-      <span class="en">Farm structures</span>
+<div class="page-wrap">
+  <section class="services-section" id="dienste">
+    <p class="section-label">Ons Dienste</p>
+    <h2 class="section-heading">Wat kan ons vir jou bou?</h2>
+    <div class="service-grid">
+      <div class="service-card" data-key="plaasstrukture" onclick="toggleService(this)">
+        <span class="af">Plaasstrukture</span>
+        <span class="en">Farm structures</span>
+      </div>
+      <div class="service-card" data-key="staalrame" onclick="toggleService(this)">
+        <span class="af">Staalrame</span>
+        <span class="en">Steel frames</span>
+      </div>
+      <div class="service-card" data-key="skure" onclick="toggleService(this)">
+        <span class="af">Skure</span>
+        <span class="en">Sheds</span>
+      </div>
+      <div class="service-card" data-key="installasie" onclick="toggleService(this)">
+        <span class="af">Installasie</span>
+        <span class="en">Installation</span>
+      </div>
+      <div class="service-card" data-key="plaasheinings" onclick="toggleService(this)">
+        <span class="af">Plaasheinings</span>
+        <span class="en">Farm fencing</span>
+      </div>
+      <div class="service-card" data-key="pasgemaak" onclick="toggleService(this)">
+        <span class="af">Pasgemaakte Werk</span>
+        <span class="en">Custom work</span>
+      </div>
     </div>
-    <div class="service-card" data-key="staalrame" onclick="toggleService(this)">
-      <span class="af">Staalrame</span>
-      <span class="en">Steel frames</span>
-    </div>
-    <div class="service-card" data-key="skure" onclick="toggleService(this)">
-      <span class="af">Skure</span>
-      <span class="en">Sheds</span>
-    </div>
-    <div class="service-card" data-key="installasie" onclick="toggleService(this)">
-      <span class="af">Installasie</span>
-      <span class="en">Installation</span>
-    </div>
-    <div class="service-card" data-key="plaasheinings" onclick="toggleService(this)">
-      <span class="af">Plaasheinings</span>
-      <span class="en">Farm fencing</span>
-    </div>
-    <div class="service-card" data-key="pasgemaak" onclick="toggleService(this)">
-      <span class="af">Pasgemaakte Werk</span>
-      <span class="en">Custom work</span>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- ── HERITAGE STRIP ── -->
 <div class="heritage-strip">
@@ -381,17 +376,19 @@
 </div>
 
 <!-- ── WHATSAPP CTA ── -->
-<section class="cta-section">
-  <h2 class="cta-heading">Kry jou kwotasie vandag</h2>
-  <p class="cta-sub">Kies die dienste hierbo wat jy nodig het,<br>dan stuur ons jou 'n kwotasie via WhatsApp.</p>
-  <a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.56 3.78 1.55 5.34L2 22l4.9-1.62a9.86 9.86 0 0 0 5.14 1.42h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.18 0 4.23.85 5.77 2.39a8.13 8.13 0 0 1 2.4 5.78c0 4.51-3.67 8.18-8.18 8.18a8.18 8.18 0 0 1-4.16-1.14l-.3-.17-3.07 1.01 1.03-2.99-.19-.31a8.1 8.1 0 0 1-1.27-4.4c0-4.51 3.67-8.35 8.07-8.35zm-2.46 4.46c-.16 0-.42.06-.6.27-.2.23-.78.76-.78 1.85 0 1.09.79 2.14.9 2.29.11.15 1.5 2.39 3.73 3.27 1.85.73 2.23.59 2.63.55.4-.04 1.3-.53 1.48-1.05.18-.51.18-.95.13-1.04-.06-.1-.21-.15-.45-.27-.23-.12-1.3-.64-1.5-.71-.2-.07-.35-.11-.5.11-.15.22-.57.71-.7.86-.13.15-.26.16-.48.06-.23-.11-.96-.36-1.83-1.14-.68-.6-1.13-1.34-1.27-1.57-.13-.22-.01-.35.11-.47.11-.11.26-.29.39-.43.13-.15.17-.25.26-.42.09-.18.04-.33-.03-.45-.07-.12-.6-1.47-.83-2.01-.18-.43-.36-.45-.55-.46h-.21z"/>
-    </svg>
-    VRA 'N KWOTASIE via WhatsApp
-  </a>
-  <p class="wa-note">Ons reageer gewoonlik binne 'n paar uur · We usually respond within a few hours</p>
-</section>
+<div class="page-wrap">
+  <section class="cta-section">
+    <h2 class="cta-heading">Kry jou kwotasie vandag</h2>
+    <p class="cta-sub">Kies die dienste hierbo wat jy nodig het,<br>dan stuur ons jou 'n kwotasie via WhatsApp.</p>
+    <a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.56 3.78 1.55 5.34L2 22l4.9-1.62a9.86 9.86 0 0 0 5.14 1.42h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.18 0 4.23.85 5.77 2.39a8.13 8.13 0 0 1 2.4 5.78c0 4.51-3.67 8.18-8.18 8.18a8.18 8.18 0 0 1-4.16-1.14l-.3-.17-3.07 1.01 1.03-2.99-.19-.31a8.1 8.1 0 0 1-1.27-4.4c0-4.51 3.67-8.35 8.07-8.35zm-2.46 4.46c-.16 0-.42.06-.6.27-.2.23-.78.76-.78 1.85 0 1.09.79 2.14.9 2.29.11.15 1.5 2.39 3.73 3.27 1.85.73 2.23.59 2.63.55.4-.04 1.3-.53 1.48-1.05.18-.51.18-.95.13-1.04-.06-.1-.21-.15-.45-.27-.23-.12-1.3-.64-1.5-.71-.2-.07-.35-.11-.5.11-.15.22-.57.71-.7.86-.13.15-.26.16-.48.06-.23-.11-.96-.36-1.83-1.14-.68-.6-1.13-1.34-1.27-1.57-.13-.22-.01-.35.11-.47.11-.11.26-.29.39-.43.13-.15.17-.25.26-.42.09-.18.04-.33-.03-.45-.07-.12-.6-1.47-.83-2.01-.18-.43-.36-.45-.55-.46h-.21z"/>
+      </svg>
+      VRA 'N KWOTASIE via WhatsApp
+    </a>
+    <p class="wa-note">Ons reageer gewoonlik binne 'n paar uur<br>We usually respond within a few hours</p>
+  </section>
+</div>
 
 <!-- ── FOOTER ── -->
 <footer>
@@ -410,12 +407,10 @@
     plaasheinings: "Plaasheinings / Farm fencing",
     pasgemaak: "Pasgemaakte Werk / Custom work"
   };
-
   function toggleService(el) {
     el.classList.toggle("active");
     updateLink();
   }
-
   function updateLink() {
     var items = document.querySelectorAll(".service-card.active");
     var lines = [];
@@ -425,12 +420,11 @@
     var message = "Goeie dag,\n\nEk stel belang in die volgende dienste:\n";
     message += lines.length > 0
       ? lines.join("\n") + "\n\n"
-      : "(Geen dienste gekies nie / No services selected)\n\n";
+      : "(Geen dienste gekies nie)\n\n";
     message += "Naam / Name:\nLigging / Location:\nBesonderhede / Details:";
     document.getElementById("waBtn").href =
       "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
   }
-
   updateLink();
 </script>
 </body>
