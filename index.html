@@ -1,21 +1,1242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EBM ShelfLink</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>EBM ShelfLink | Retail Specials Links for South African Businesses</title>
+  <meta name="description" content="EBM ShelfLink turns your weekly retail specials into a branded, mobile-friendly ordering link — ready to share with customers via WhatsApp, Facebook, or QR code. Serving pharmacies, local retailers, product sellers, and small businesses across South Africa." />
+  <meta name="keywords" content="EBM ShelfLink, retail specials link, WhatsApp ordering link, pharmacy specials South Africa, local retailer specials page, small business specials link" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ebmshelflink.co.za/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ebmshelflink.co.za/" />
+  <meta property="og:title" content="EBM ShelfLink | Your specials. One link. Ready to order." />
+  <meta property="og:description" content="Turn your weekly retail specials into a branded, mobile-friendly ordering link your customers can open, browse, and order from via WhatsApp." />
+  <meta property="og:site_name" content="EBM ShelfLink" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "EBM ShelfLink",
+    "description": "Retail specials links and business showcase pages for independent retailers and small businesses in South Africa.",
+    "url": "https://ebmshelflink.co.za",
+    "email": "shelflink@elevationbusinessmanagement.co.za",
+    "telephone": "+27662527645",
+    "areaServed": "South Africa",
+    "serviceType": "Retail Specials Links / WhatsApp Ordering Links / Business Showcase Pages"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
   <style>
-    body { margin: 0; background: #141414; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; }
-    .card { text-align: center; padding: 40px; }
-    h1 { color: #ffffff; font-size: 2.5rem; margin-bottom: 8px; }
-    p { color: #2A9D8F; font-size: 1.1rem; margin: 0; }
-    .dot { display: inline-block; width: 10px; height: 10px; background: #2A9D8F; border-radius: 50%; margin-right: 8px; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0A0A0A;
+      --surface:      #111111;
+      --surface2:     #161616;
+      --border:       #1E1E1E;
+      --border-soft:  #252525;
+      --teal:         #2DD4BF;
+      --teal-dim:     rgba(45, 212, 191, 0.10);
+      --teal-glow:    rgba(45, 212, 191, 0.06);
+      --amber:        #F59E0B;
+      --amber-dim:    rgba(245, 158, 11, 0.09);
+      --amber-border: rgba(245, 158, 11, 0.18);
+      --white:        #F0F0F0;
+      --muted:        #6B7280;
+      --muted-soft:   #4B5563;
+      --wa-green:     #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────
+       NAV
+    ───────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2rem;
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--teal); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #fff;
+      background: var(--wa-green);
+      text-decoration: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .nav-cta svg { flex-shrink: 0; }
+
+    /* ─────────────────────────────
+       HERO
+    ───────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--teal-glow) 1px, transparent 1px),
+        linear-gradient(90deg, var(--teal-glow) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 28%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 640px;
+      height: 640px;
+      background: radial-gradient(ellipse, rgba(45,212,191,0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 2.5rem;
+      background: var(--teal);
+      opacity: 0.45;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    h1 .accent { color: var(--teal); }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* WhatsApp CTA with pulse */
+    .wa-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .pulse-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(37,211,102,0.45);
+      animation: sonar 2.6s ease-out infinite;
+      pointer-events: none;
+    }
+    .pulse-ring:nth-child(2) { animation-delay: 0.87s; }
+    .pulse-ring:nth-child(3) { animation-delay: 1.74s; }
+
+    @keyframes sonar {
+      0%   { width: 68px; height: 68px; opacity: 0.7; }
+      100% { width: 170px; height: 170px; opacity: 0; }
+    }
+
+    .wa-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.95rem 2rem;
+      border-radius: 50px;
+      transition: transform 0.18s, box-shadow 0.18s;
+      z-index: 2;
+      white-space: nowrap;
+    }
+    .wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.28);
+    }
+    .wa-btn svg { flex-shrink: 0; }
+
+    .wa-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid var(--wa-green);
+      color: var(--wa-green);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .wa-btn-secondary:hover {
+      background: var(--wa-green);
+      color: #fff;
+    }
+
+    .trust-note {
+      font-size: 0.75rem;
+      color: var(--muted-soft);
+      margin-top: 1.1rem;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.01em;
+    }
+    .trust-note span { color: var(--muted); }
+
+    /* ─────────────────────────────
+       PROBLEM
+    ───────────────────────────── */
+    .problem {
+      padding: 5.5rem 1.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 3rem;
+      line-height: 1.75;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .problem-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem 1.4rem;
+      text-align: left;
+    }
+
+    .problem-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .problem-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .problem-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ─────────────────────────────
+       SOLUTION
+    ───────────────────────────── */
+    .solution {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5.5rem 1.5rem;
+    }
+
+    .solution-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .solution-item {
+      background: var(--bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 1.5rem 1.25rem;
+      text-align: left;
+      transition: border-color 0.2s;
+    }
+    .solution-item:hover { border-color: rgba(45,212,191,0.28); }
+
+    .solution-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+      margin-bottom: 0.85rem;
+    }
+
+    .solution-item h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.35rem;
+    }
+
+    .solution-item p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ─────────────────────────────
+       HOW IT WORKS
+    ───────────────────────────── */
+    .hiw {
+      padding: 5.5rem 1.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      text-align: left;
+      transition: border-color 0.2s;
+    }
+    .step:hover { border-color: rgba(45,212,191,0.25); }
+
+    .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--border-soft);
+      line-height: 1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .step h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─────────────────────────────
+       PRICING
+    ───────────────────────────── */
+    .pricing {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5.5rem 1.5rem;
+    }
+
+    .pricing-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .tier-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.25rem 2rem;
+      position: relative;
+      text-align: left;
+      transition: border-color 0.2s;
+    }
+    .tier-card:hover { border-color: rgba(45,212,191,0.2); }
+    .tier-card.featured { border-color: var(--teal); }
+
+    .tier-badge {
+      position: absolute;
+      top: -1px; right: 1.5rem;
+      background: var(--teal);
+      color: #0A0A0A;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.65rem;
+      border-radius: 0 0 7px 7px;
+    }
+
+    .tier-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .tier-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .tier-price sup {
+      font-size: 1.1rem;
+      font-weight: 500;
+      vertical-align: super;
+    }
+
+    .tier-setup {
+      font-size: 0.78rem;
+      color: var(--muted-soft);
+      margin-bottom: 1.75rem;
+    }
+
+    .tier-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .tier-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .tier-features li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      line-height: 1.5;
+    }
+
+    .tier-features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+      font-size: 0.8rem;
+    }
+
+    .build-def {
+      margin-top: 2.5rem;
+      background: var(--teal-dim);
+      border: 1px solid rgba(45,212,191,0.15);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+    }
+
+    .build-def p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .build-def strong { color: var(--white); }
+
+    .scope-note {
+      margin-top: 1.25rem;
+      background: var(--surface2);
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+    }
+
+    .scope-note p {
+      font-size: 0.82rem;
+      color: var(--muted-soft);
+      line-height: 1.65;
+    }
+
+    /* ─────────────────────────────
+       ADD-ONS
+    ───────────────────────────── */
+    .addons {
+      padding: 4.5rem 1.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .addons-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .addon-tag {
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 50px;
+      padding: 0.4rem 0.9rem;
+    }
+
+    /* ─────────────────────────────
+       AGREEMENT
+    ───────────────────────────── */
+    .agreement {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4.5rem 1.5rem;
+    }
+
+    .agreement-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .agreement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+
+    .agreement-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.25rem;
+    }
+
+    .agreement-item h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .agreement-item p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ─────────────────────────────
+       HOSTING
+    ───────────────────────────── */
+    .hosting {
+      padding: 4rem 1.5rem;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hosting-card {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 2rem 2rem;
+    }
+
+    .hosting-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .hosting-card strong { color: var(--white); }
+
+    .hosting-card code {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.82rem;
+      background: var(--teal-dim);
+      color: var(--teal);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+
+    /* ─────────────────────────────
+       PHARMACY COMPLIANCE
+    ───────────────────────────── */
+    .compliance {
+      padding: 0 1.5rem 4rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .compliance-note {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .compliance-note p {
+      font-size: 0.8rem;
+      color: var(--muted-soft);
+      line-height: 1.65;
+    }
+
+    .compliance-note strong { color: var(--muted); }
+
+    /* ─────────────────────────────
+       SHOWCASE
+    ───────────────────────────── */
+    .showcase {
+      background: var(--surface2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 1.5rem;
+    }
+
+    .showcase-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .showcase-eyebrow {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .showcase-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.85rem;
+      line-height: 1.15;
+    }
+
+    .showcase-sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+
+    .showcase-card {
+      background: var(--bg);
+      border: 1px solid var(--amber-border);
+      border-radius: 12px;
+      padding: 2rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .showcase-col h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .showcase-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .showcase-list li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .showcase-list li::before {
+      content: '✓';
+      color: var(--amber);
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 0.78rem;
+      margin-top: 0.08rem;
+    }
+
+    .showcase-price {
+      font-size: 0.82rem;
+      color: var(--muted-soft);
+      margin-bottom: 2rem;
+    }
+
+    .showcase-price strong { color: var(--muted); }
+
+    /* ─────────────────────────────
+       FOOTER CTA
+    ───────────────────────────── */
+    .footer-cta {
+      padding: 6.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-cta h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.85rem;
+      line-height: 1.15;
+    }
+
+    .footer-cta p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─────────────────────────────
+       FOOTER
+    ───────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    footer p { font-size: 0.76rem; color: var(--muted-soft); }
+    footer a { color: var(--muted-soft); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--teal); }
+
+    /* ─────────────────────────────
+       RESPONSIVE
+    ───────────────────────────── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .showcase-card { grid-template-columns: 1fr; gap: 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+      .cta-group { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pulse-ring { animation: none; }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>EBM ShelfLink</h1>
-    <p><span class="dot"></span>Your weekly specials. Built, sent, done.</p>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="/">EBM <span>ShelfLink</span></a>
+  <a class="nav-cta"
+     href="https://wa.me/27662527645?text=Hi%20EBM%20ShelfLink!%20My%20business%20name%20is%3A%20%5Byour%20business%5D%0A%0AI%20am%20interested%20in%3A%20ShelfLink%20(weekly%20specials)%20%2F%20ShelfShowcase%20(business%20page)%0A%0ATell%20us%20a%20bit%20more%20about%20what%20you%20need%3A"
+     target="_blank" rel="noopener" aria-label="Start on WhatsApp">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    Start on WhatsApp
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <p class="eyebrow">Retail Specials Links · South Africa</p>
+
+  <h1>Your specials.<br>One link.<br><span class="accent">Ready to order.</span></h1>
+
+  <p class="hero-sub">Send us your specials. We build a branded link where customers can browse your offers and place orders through WhatsApp.</p>
+
+  <div class="wa-wrap">
+    <div class="pulse-ring" aria-hidden="true"></div>
+    <div class="pulse-ring" aria-hidden="true"></div>
+    <div class="pulse-ring" aria-hidden="true"></div>
+    <a class="wa-btn"
+       href="https://wa.me/27662527645?text=Hi%20EBM%20ShelfLink!%20My%20business%20name%20is%3A%20%5Byour%20business%5D%0A%0AI%20am%20interested%20in%3A%20ShelfLink%20(weekly%20specials)%20%2F%20ShelfShowcase%20(business%20page)%0A%0ATell%20us%20a%20bit%20more%20about%20what%20you%20need%3A"
+       target="_blank" rel="noopener" aria-label="Get my specials link on WhatsApp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Get my specials link
+    </a>
   </div>
+  <p class="trust-note"><span>Simple onboarding</span> · <span>3-month starter agreement</span> · <span>No long-term contracts after that</span></p>
+</section>
+
+<!-- ── PROBLEM ── -->
+<section class="problem">
+  <p class="section-eyebrow">The problem</p>
+  <h2 class="section-heading">Your specials are everywhere.<br>Your customers can't find them.</h2>
+  <p class="section-sub">Pharmacies, local retailers, and product-based small businesses often share specials through PDFs, posters, WhatsApp images, and Facebook groups. Customers can't browse, can't order, and stores don't have time to build pages or manage a full online store.</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <span class="problem-icon">📄</span>
+      <h3>Specials stuck in PDFs</h3>
+      <p>Hard to share, hard to browse, impossible to order from on a phone.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-icon">📱</span>
+      <h3>WhatsApp images get lost</h3>
+      <p>Customers scroll past them. No way to browse or place an order.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-icon">🛒</span>
+      <h3>Full ecommerce is overkill</h3>
+      <p>You don't need a full online store. You need a simple, shareable specials link.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-icon">⏱️</span>
+      <h3>No time to build pages</h3>
+      <p>Store managers run the floor. Building digital pages every week isn't realistic.</p>
+    </div>
+  </div>
+  <div style="margin-top:2rem; background:var(--surface); border:1px solid var(--border-soft); border-radius:10px; padding:1.5rem 1.75rem; text-align:left; max-width:860px; margin-left:auto; margin-right:auto;">
+    <p style="font-family:'Space Grotesk',sans-serif; font-size:0.68rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); margin-bottom:1rem;">Who ShelfLink is built for</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:0.5rem 1.5rem;">
+      <p style="font-size:0.83rem; color:var(--muted);">Pharmacies and health retailers</p>
+      <p style="font-size:0.83rem; color:var(--muted);">Fruit, food, and local product sellers</p>
+      <p style="font-size:0.83rem; color:var(--muted);">Beauty and nail salons with offers</p>
+      <p style="font-size:0.83rem; color:var(--muted);">Home, garden, and Wendy house suppliers</p>
+      <p style="font-size:0.83rem; color:var(--muted);">Handbag, gift, and lifestyle product sellers</p>
+      <p style="font-size:0.83rem; color:var(--muted);">Small retailers advertising in WhatsApp or Facebook groups</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUTION ── -->
+<section class="solution">
+  <div class="solution-inner">
+    <p class="section-eyebrow">The ShelfLink solution</p>
+    <h2 class="section-heading">One branded link.<br>Customers browse and order via WhatsApp.</h2>
+    <p class="section-sub">ShelfLink is not ecommerce. It's not social media management. It's a fast, shareable retail specials and WhatsApp ordering link — built for independent retailers who need results, not complexity.</p>
+    <div class="solution-grid">
+      <div class="solution-item">
+        <div class="solution-dot"></div>
+        <h3>Branded specials page</h3>
+        <p>Your store name, your products, your look.</p>
+      </div>
+      <div class="solution-item">
+        <div class="solution-dot"></div>
+        <h3>Mobile-friendly link</h3>
+        <p>Opens cleanly on any phone. No app required.</p>
+      </div>
+      <div class="solution-item">
+        <div class="solution-dot"></div>
+        <h3>WhatsApp order button</h3>
+        <p>Customers tap to order. You receive it on WhatsApp.</p>
+      </div>
+      <div class="solution-item">
+        <div class="solution-dot"></div>
+        <h3>QR-code ready</h3>
+        <p>Print it on a poster, till slip, or shelf talker.</p>
+      </div>
+      <div class="solution-item">
+        <div class="solution-dot"></div>
+        <h3>Shareable anywhere</h3>
+        <p>WhatsApp, Facebook, SMS, email — one link works everywhere.</p>
+      </div>
+      <div class="solution-item">
+        <div class="solution-dot"></div>
+        <h3>No ecommerce setup needed</h3>
+        <p>No payment gateway. No stock management. No complexity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="hiw">
+  <p class="section-eyebrow">How it works</p>
+  <h2 class="section-heading">Three steps. Done.</h2>
+  <p class="section-sub">You send your specials. We build and check the link. You approve and share it with your customers.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Send your specials list</h3>
+      <p>Email us your products, prices, and specials for the period. Use our simple submission format or send what you have.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>We build and check your link</h3>
+      <p>We build your branded, mobile-friendly ShelfLink page — checked and ready for your approval before it goes live.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>You approve and share it</h3>
+      <p>One confirmation from you. Then share it via WhatsApp, Facebook, QR code, or anywhere your customers are.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section class="pricing">
+  <div class="pricing-inner">
+    <p class="section-eyebrow">Pricing</p>
+    <h2 class="section-heading">Simple, transparent packages</h2>
+    <p class="section-sub">Monthly billing in advance. Each package includes a once-off onboarding fee. Simple 3-month starter agreement.</p>
+
+    <div class="tier-grid">
+
+      <!-- STARTER -->
+      <div class="tier-card">
+        <div class="tier-name">Shelf Starter</div>
+        <div class="tier-price"><sup>R</sup>899</div>
+        <div class="tier-setup">per month · R1,999 onboarding</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>1 ShelfLink build per month</li>
+          <li>Up to 25 products per build</li>
+          <li>Branded store link</li>
+          <li>WhatsApp order button</li>
+          <li>Customer-ready link delivered to you</li>
+          <li>1 correction round before approval</li>
+        </ul>
+      </div>
+
+      <!-- WEEKLY -->
+      <div class="tier-card featured">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-name">Shelf Weekly</div>
+        <div class="tier-price"><sup>R</sup>1,799</div>
+        <div class="tier-setup">per month · R2,999 onboarding</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>Up to 4 ShelfLink builds per month</li>
+          <li>Up to 30 products per build</li>
+          <li>Branded store link</li>
+          <li>WhatsApp order button</li>
+          <li>Priority turnaround</li>
+          <li>Customer-ready link delivered to you</li>
+          <li>1 correction round per build before approval</li>
+        </ul>
+      </div>
+
+      <!-- PRO -->
+      <div class="tier-card">
+        <div class="tier-name">Shelf Pro</div>
+        <div class="tier-price"><sup>R</sup>3,499</div>
+        <div class="tier-setup">per month · R4,999 onboarding</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>Up to 8 ShelfLink builds per month</li>
+          <li>Up to 40 products per build</li>
+          <li>Category sections</li>
+          <li>Priority turnaround</li>
+          <li>Monthly product asset maintenance</li>
+          <li>Basic reporting summary</li>
+          <li>Campaign page support</li>
+          <li>1 correction round per build before approval</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- BUILD DEFINITION -->
+    <div class="build-def">
+      <p><strong>What is a ShelfLink build?</strong> A ShelfLink build means one completed customer-ready specials link update based on one submitted product list.</p>
+    </div>
+
+    <!-- SCOPE PROTECTION -->
+    <div class="scope-note">
+      <p>Product information, pricing, and images must be supplied by the retailer or available in the ShelfLink asset library. Image extraction, background removal, urgent builds, additional products, additional correction rounds, and post-approval changes are quoted separately.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ADD-ONS ── -->
+<section class="addons">
+  <p class="section-eyebrow">Optional add-ons</p>
+  <h2 class="section-heading" style="font-size:clamp(1.2rem,2.5vw,1.6rem);">Available on request · Quoted separately</h2>
+  <div class="addons-list">
+    <span class="addon-tag">Extra builds above package limit</span>
+    <span class="addon-tag">Urgent 24-hour turnaround</span>
+    <span class="addon-tag">Product image extraction from leaflet</span>
+    <span class="addon-tag">Background removal &amp; asset clean-up</span>
+    <span class="addon-tag">QR-code poster</span>
+    <span class="addon-tag">Own-domain setup</span>
+    <span class="addon-tag">Full online store upgrade</span>
+  </div>
+</section>
+
+<!-- ── AGREEMENT ── -->
+<section class="agreement">
+  <div class="agreement-inner">
+    <p class="section-eyebrow">Service agreement</p>
+    <h2 class="section-heading" style="font-size:clamp(1.2rem,2.5vw,1.7rem);">Clear terms. No surprises.</h2>
+    <div class="agreement-grid">
+      <div class="agreement-item">
+        <h4>Starter agreement</h4>
+        <p>3-month starter agreement. Thereafter month-to-month with 30 days' written notice.</p>
+      </div>
+      <div class="agreement-item">
+        <h4>Billing</h4>
+        <p>Monthly in advance. Once-off setup fee billed at onboarding.</p>
+      </div>
+      <div class="agreement-item">
+        <h4>Content cut-off</h4>
+        <p>Product lists must be submitted by the agreed weekly or monthly cut-off date to secure your build slot.</p>
+      </div>
+      <div class="agreement-item">
+        <h4>Approval</h4>
+        <p>Client approval is required before any ShelfLink page is shared with customers.</p>
+      </div>
+      <div class="agreement-item">
+        <h4>Accuracy</h4>
+        <p>Pricing and product accuracy remain the retailer's responsibility. We build what you submit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOSTING ── -->
+<section class="hosting">
+  <div class="hosting-card">
+    <p><strong>Hosting included as standard</strong> under <code>ebmshelflink.co.za/your-business-name/</code>. Own-domain setup is available as an optional upgrade and quoted separately.</p>
+  </div>
+</section>
+
+<!-- ── PHARMACY COMPLIANCE ── -->
+<section class="compliance">
+  <div class="compliance-note" role="note">
+    <p><strong>For pharmacies and regulated categories:</strong> No medical, therapeutic, or product claims are created or altered without client approval. Prescription, patient, or confidential health information must not be submitted through ShelfLink. EBM ShelfLink builds retail specials pages only — not medical advice, product endorsements, or regulated content.</p>
+  </div>
+</section>
+
+<!-- ── SHOWCASE ── -->
+<section class="showcase">
+  <div class="showcase-inner">
+    <p class="showcase-eyebrow">Not running weekly specials?</p>
+    <h2 class="showcase-heading">Need a simple business showcase instead?</h2>
+    <p class="showcase-sub">ShelfShowcase is a simple one-page business enquiry page for service businesses, farms, guesthouses, venues, and small local businesses that need an online presence without the complexity.</p>
+
+    <div class="showcase-card">
+      <div class="showcase-col">
+        <h3>What's included</h3>
+        <ul class="showcase-list">
+          <li>Your services or offerings, listed and described</li>
+          <li>Branded to your business identity</li>
+          <li>Contact details and enquiry prompt</li>
+          <li>Shareable via WhatsApp and Facebook</li>
+          <li>Hosted under ebmshelflink.co.za/your-business/</li>
+          <li>Delivered to your inbox</li>
+        </ul>
+      </div>
+      <div class="showcase-col">
+        <h3>Perfect for</h3>
+        <ul class="showcase-list">
+          <li>Farm stays and agri-tourism</li>
+          <li>Guesthouses and B&Bs</li>
+          <li>Service businesses</li>
+          <li>Event venues</li>
+          <li>Small local businesses without weekly specials</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="showcase-price"><strong>Custom quoted per project.</strong> Message us to discuss your needs.</p>
+
+    <a class="wa-btn-secondary"
+       href="https://wa.me/27662527645?text=Hi%20EBM%20ShelfLink!%20My%20business%20name%20is%3A%20%5Byour%20business%5D%0A%0AI%20am%20interested%20in%3A%20ShelfShowcase%20(business%20showcase%20page)%0A%0ATell%20us%20a%20bit%20more%20about%20what%20you%20need%3A"
+       target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Ask about ShelfShowcase
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER CTA ── -->
+<section class="footer-cta">
+  <h2>Ready to create your first ShelfLink?</h2>
+  <p>Send your specials list on WhatsApp and we'll confirm the best package, setup requirements, and next steps.</p>
+  <div class="wa-wrap">
+    <div class="pulse-ring" aria-hidden="true"></div>
+    <div class="pulse-ring" aria-hidden="true"></div>
+    <div class="pulse-ring" aria-hidden="true"></div>
+    <a class="wa-btn"
+       href="https://wa.me/27662527645?text=Hi%20EBM%20ShelfLink!%20My%20business%20name%20is%3A%20%5Byour%20business%5D%0A%0AI%20am%20interested%20in%3A%20ShelfLink%20(weekly%20specials)%20%2F%20ShelfShowcase%20(business%20page)%0A%0ATell%20us%20a%20bit%20more%20about%20what%20you%20need%3A"
+       target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Get my specials link
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 EBM ShelfLink · A service by <a href="mailto:shelflink@elevationbusinessmanagement.co.za">Elevation Business Management</a></p>
+  <p><a href="mailto:shelflink@elevationbusinessmanagement.co.za">shelflink@elevationbusinessmanagement.co.za</a></p>
+</footer>
+
 </body>
 </html>
