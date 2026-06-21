@@ -1249,9 +1249,12 @@
     }
 
     @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem 3rem; }
-      .hero-mockup { order: -1; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 3rem; }
+      /* hero-content comes first in HTML so no order override needed — phone stacks below */
       .hero-mockup .phone-frame, .cta-mockup .phone-frame { transform: none; }
+      /* splash is 420px wide — hide on mobile to eliminate overflow beyond viewport */
+      .phone-splash-wrap { display: none; }
+      /* nav: only one of these is visible at a time */
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .who-grid { grid-template-columns: repeat(2, 1fr); }
